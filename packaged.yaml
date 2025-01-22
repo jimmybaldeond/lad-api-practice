@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: s3://lad-practice-lambda-dev-s-ladpracticelambdadevbuck-nzla4j3l8kdv/f83227e50efe6830fe3abe8bc249c19c
+      MemorySize: 128
+      Timeout: 10
+      Role: arn:aws:iam::234695374516:role/lad-practice-lambda-dev-s-LambdaExecutionRoleD5C260-ksQrhQtLg5Nj
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
+    Metadata:
+      SamResourceId: HelloWorldFunction

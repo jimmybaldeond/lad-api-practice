@@ -1,0 +1,13 @@
+version = 0.1
+
+[default]
+[default.package.parameters]
+s3_bucket = "lad-practice-lambda-dev-s-ladpracticelambdadevbuck-nzla4j3l8kdv"
+output_template_file = "packaged.yaml"
+region = "us-east-1"
+
+[default.deploy.parameters]
+stack_name = "lad-practice-lambda-api-dev-stack"
+capabilities = "CAPABILITY_IAM"
+template_file = "packaged.yaml"
+region = "us-east-1"
