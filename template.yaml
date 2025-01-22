@@ -9,7 +9,7 @@ Resources:
       CodeUri: .
       MemorySize: 128
       Timeout: 10
-      Role: <role-arn>  # Replace <role-arn> with your Lambda execution role ARN
+      Role: arn:aws:iam::234695374516:role/lad-practice-lambda-dev-s-LambdaExecutionRoleD5C260-ksQrhQtLg5Nj  # Replace <role-arn> with your Lambda execution role ARN
       Events:
         HelloWorldApi:
           Type: Api
