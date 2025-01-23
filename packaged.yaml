@@ -6,7 +6,7 @@ Resources:
     Properties:
       Handler: lambda_function.lambda_handler
       Runtime: python3.8
-      CodeUri: s3://lad-practice-lambda-dev-s-ladpracticelambdadevbuck-nzla4j3l8kdv/f83227e50efe6830fe3abe8bc249c19c
+      CodeUri: s3://lad-practice-lambda-dev-s-ladpracticelambdadevbuck-nzla4j3l8kdv/e705d12249ef964da75c841ea54b878b
       MemorySize: 128
       Timeout: 10
       Role: arn:aws:iam::234695374516:role/lad-practice-lambda-dev-s-LambdaExecutionRoleD5C260-ksQrhQtLg5Nj
@@ -14,7 +14,12 @@ Resources:
         HelloWorldApi:
           Type: Api
           Properties:
-            Path: /
+            Path: /lad-api-practice-dev/hello
             Method: get
     Metadata:
       SamResourceId: HelloWorldFunction
+Outputs:
+  HelloWorldApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/

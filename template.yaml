@@ -14,7 +14,7 @@ Resources:
         HelloWorldApi:
           Type: Api
           Properties:
-            Path: /
+            Path: /lad-api-practice-dev/hello
             Method: get
 Outputs:
   HelloWorldApi:
