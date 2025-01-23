@@ -9,14 +9,36 @@ Resources:
       CodeUri: .
       MemorySize: 128
       Timeout: 10
-      Role: arn:aws:iam::234695374516:role/lad-practice-lambda-dev-s-LambdaExecutionRoleD5C260-ksQrhQtLg5Nj  # Replace <role-arn> with your Lambda execution role ARN
+      Role: arn:aws:iam::234695374516:role/lad-practice-lambda-dev-s-LambdaExecutionRoleD5C260-ksQrhQtLg5Nj
       Events:
         HelloWorldApi:
           Type: Api
           Properties:
             Path: /lad-api-practice-dev/hello
             Method: get
+  PeriodicFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: periodic_lambda.lambda_handler
+      Runtime: python3.8
+      CodeUri: .
+      MemorySize: 128
+      Timeout: 10
+      Role: arn:aws:iam::234695374516:role/lad-practice-lambda-dev-s-LambdaExecutionRoleD5C260-ksQrhQtLg5Nj
+      Events:
+        PeriodicSchedule:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 hour)
+        PeriodicApi:
+          Type: Api
+          Properties:
+            Path: /lad-api-practice-dev/periodic
+            Method: get
 Outputs:
   HelloWorldApi:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+  PeriodicApi:
+    Description: "API Gateway endpoint URL for Prod stage for Periodic function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/lad-api-practice-dev/periodic"
