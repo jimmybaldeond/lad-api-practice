@@ -6,7 +6,7 @@ Resources:
     Properties:
       Handler: lambda_function.lambda_handler
       Runtime: python3.8
-      CodeUri: .
+      CodeUri: aws/lambda/hello/
       MemorySize: 128
       Timeout: 10
       Role: arn:aws:iam::234695374516:role/lad-practice-lambda-dev-s-LambdaExecutionRoleD5C260-ksQrhQtLg5Nj
@@ -21,7 +21,7 @@ Resources:
     Properties:
       Handler: periodic_lambda.lambda_handler
       Runtime: python3.8
-      CodeUri: .
+      CodeUri: aws/lambda/periodic/
       MemorySize: 128
       Timeout: 10
       Role: arn:aws:iam::234695374516:role/lad-practice-lambda-dev-s-LambdaExecutionRoleD5C260-ksQrhQtLg5Nj
@@ -38,7 +38,7 @@ Resources:
 Outputs:
   HelloWorldApi:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/lad-api-practice-dev/hello"
   PeriodicApi:
     Description: "API Gateway endpoint URL for Prod stage for Periodic function"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/lad-api-practice-dev/periodic"

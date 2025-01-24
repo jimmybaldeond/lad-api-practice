@@ -132,3 +132,8 @@ dmypy.json
 
 # AWS SAM packaged template
 packaged.yaml
+
+# AWS Lambda function directories
+aws/lambda/hello/__pycache__/
+aws/lambda/hello/*.py[cod]
+aws/lambda/hello/*$py.class
